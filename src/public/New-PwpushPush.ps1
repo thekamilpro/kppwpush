@@ -1,4 +1,5 @@
-function New-PwpushPush {
+function New-PwpushPush
+{
     [cmdletbinding()]
     param (
         [Parameter(Mandatory)]
@@ -21,19 +22,19 @@ function New-PwpushPush {
 
     $body = @{
         password = @{
-            "payload" = $Payload
-            "note" = $Note
-            "expire_after_days" = $ExpireAfterDays
-            "expire_after_views" = $ExpireAfterViews
+            "payload"             = $Payload
+            "note"                = $Note
+            "expire_after_days"   = $ExpireAfterDays
+            "expire_after_views"  = $ExpireAfterViews
             "deletable_by_viewer" = $DeletableByViewer
-            "retrieval_step" = $RetrievalStep
+            "retrieval_step"      = $RetrievalStep
         }
     } | ConvertTo-Json
 
     $params = @{
         Endpoint = $endpoint 
-        Method = "Post" 
-        Body = $body
+        Method   = "Post" 
+        Body     = $body
     }
     Invoke-PwpushRequest @params
 }

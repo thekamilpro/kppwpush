@@ -11,6 +11,7 @@ $params = @{
     UnversionedOutputDirectory = $true
     Version = $Version 
     Passthru = $true
+    Verbose = $true
 }
 
 Write-Host "Building module $Name $Version"

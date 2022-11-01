@@ -37,5 +37,3 @@ function New-PwpushPush {
     }
     Invoke-PwpushRequest @params
 }
-
-#curl -X POST -H "X-User-Email: <email>" -H "X-User-Token: MyAPIToken" --data "password[payload]=mypassword&password[expire_after_days]=2&password[expire_after_views]=10" https://pwpush.com/p.json

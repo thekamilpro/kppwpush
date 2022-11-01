@@ -1,4 +1,4 @@
-function New-PwpushPush
+function New-Pwpush
 {
     [cmdletbinding()]
     param (

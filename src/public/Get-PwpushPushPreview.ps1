@@ -1,4 +1,4 @@
-function Remove-Pwpush
+function Get-PwpushPreview
 {
     [cmdletbinding()]
     param (
@@ -6,11 +6,11 @@ function Remove-Pwpush
         [string]$UrlToken
     )
     
-    $endpoint = "p/$($UrlToken).json"
+    $endpoint = "p/$($UrlToken)/preview.json"
 
     $params = @{
         Endpoint = $endpoint 
-        Method   = "Delete" 
+        Method   = "Get" 
     }
     Invoke-PwpushRequest @params
 }

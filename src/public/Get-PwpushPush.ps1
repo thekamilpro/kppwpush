@@ -1,4 +1,4 @@
-function Remove-Pwpush
+function Get-Pwpush
 {
     [cmdletbinding()]
     param (
@@ -10,7 +10,7 @@ function Remove-Pwpush
 
     $params = @{
         Endpoint = $endpoint 
-        Method   = "Delete" 
+        Method   = "Get" 
     }
     Invoke-PwpushRequest @params
 }

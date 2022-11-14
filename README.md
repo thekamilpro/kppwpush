@@ -12,6 +12,8 @@ Install-Module -Name kppwpush
 
 ## Example use
 
+At first, you need to initialise the module by calling ```Connect-KpPwpush```, if not providing any parameters, it connects to pwpush.com server.
+
 Create new password push with password 1234 which expires after 3 days (and default 5 views):
 
 ```ps1

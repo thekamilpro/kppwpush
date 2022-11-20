@@ -1,5 +1,11 @@
 function Invoke-PwpushRequest
 {
+    <#
+    .SYNOPSIS
+        Main function for interacting with pwpush API
+    .DESCRIPTION
+        This function takes care of all headers, pagination, body formatting etc. for pwpush api calls. 
+    #>
     [cmdletbinding()]
     param(
         [Parameter(Mandatory)]
@@ -15,7 +21,7 @@ function Invoke-PwpushRequest
 
     if ( -not ($Script:Connection))
     {
-        Throw "Please connect to Pwpush via Connect-Pwpush"
+        Throw "Please connect to Pwpush via Connect-KpPwpush"
     }
 
     $url = "$($Script:Connection.Server)/$Endpoint"

@@ -1,5 +1,18 @@
 function New-Pwpush
 {
+    <#
+    .SYNOPSIS
+        Create a new push.
+    .DESCRIPTION
+        Create a new push.
+    .LINK
+        https://pwpush.com/api/1.0/passwords/create.en.html
+    .EXAMPLE
+        New-KpPwpush -Payload mySecret
+        Creates a new push with payload of mySecret
+    #>
+    
+    
     [cmdletbinding()]
     param (
         [Parameter(Mandatory)]

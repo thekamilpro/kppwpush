@@ -1,5 +1,6 @@
 function Connect-Pwpush
 {
+    [cmdletbinding()]
     param(
         [string]$Server = "https://pwpush.com/"
     )

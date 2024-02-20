@@ -5,8 +5,9 @@ param (
 )
 
 #Requires -Module "ModuleBuilder"
-
 Write-Host "Building module: [$($Name)] version: [$($Version)]"
+
+$Version = $Version.TrimStart("v")
 
 $root = Resolve-Path -Path "$PSScriptRoot/../"
 

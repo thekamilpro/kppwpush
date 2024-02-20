@@ -1,10 +1,16 @@
 param (
-    $Version = "1.0.0",
+    [string]$Version = "1.0.0",
 
-    $Name = "KpPwpush"
+    [string]$Name = "KpPwpush"
 )
 
 #Requires -Module "ModuleBuilder"
+
+Write-Host "Building module: [$($Name)] version: [$($Version)]"
+
+$root = Resolve-Path -Path "$PSScriptRoot/../"
+
+Write-Host "root: [$($root)]"
 
 $params = @{
     SourcePath = "$PSScriptRoot/../src/KpPwpush.psd1" 
@@ -12,9 +18,9 @@ $params = @{
     Version = $Version 
     Passthru = $true
     Verbose = $true
+    OutputDirectory = "$root/build"
 }
 
-Write-Host "Building module $Name $Version"
 $result = Build-Module @params
 
 try 

@@ -16,7 +16,12 @@ jobs:
             - name: Install modules
               shell: pwsh
               run : |
-                Install-Module -Name ModuleBuilder -Force
+                Install-Module -Name ModuleBuilder, PSScriptAnalyzer -Force
+
+            - name: Lint
+              shell: pwsh
+              run : |
+                . ./test/lint.ps1
 
             - name: Build module
               shell: pwsh

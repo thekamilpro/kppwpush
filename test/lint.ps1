@@ -1,1 +1,1 @@
-Invoke-ScriptAnalyzer -Path "$PSScriptRoot/../src" -Recurse -Fix
+Invoke-ScriptAnalyzer -Path "$PSScriptRoot/../src" -Recurse -Severity @("Error")

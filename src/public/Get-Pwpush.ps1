@@ -1,4 +1,4 @@
-function Get-Pwpush
+﻿function Get-Pwpush
 {
     <#
     .SYNOPSIS
@@ -18,12 +18,12 @@ function Get-Pwpush
         [Parameter(Mandatory)]
         [string]$UrlToken
     )
-    
+
     $endpoint = "p/$($UrlToken).json"
 
     $params = @{
-        Endpoint = $endpoint 
-        Method   = "Get" 
+        Endpoint = $endpoint
+        Method   = "Get"
     }
     Invoke-PwpushRequest @params
 }

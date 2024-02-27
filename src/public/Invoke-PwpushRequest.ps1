@@ -47,7 +47,15 @@
         $params.Add("headers", $headers)
     }
 
-    $reposne = Invoke-WebRequest @params
+    try
+    {
+        $reposne = Invoke-WebRequest @params
+    }
+    catch
+    {
+        throw
+    }
+    
     if ($ReturnRaw.IsPresent)
     {
         return $reposne

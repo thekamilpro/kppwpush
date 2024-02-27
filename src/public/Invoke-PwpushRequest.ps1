@@ -1,10 +1,10 @@
-function Invoke-PwpushRequest
+﻿function Invoke-PwpushRequest
 {
     <#
     .SYNOPSIS
         Main function for interacting with pwpush API
     .DESCRIPTION
-        This function takes care of all headers, pagination, body formatting etc. for pwpush api calls. 
+        This function takes care of all headers, pagination, body formatting etc. for pwpush api calls.
     #>
     [cmdletbinding()]
     param(
@@ -38,7 +38,24 @@ function Invoke-PwpushRequest
         $params.Add("ContentType", "application/json")
     }
 
-    $reposne = Invoke-WebRequest @params
+    if ($Script:Connection.ContainsKey('userEmail'))
+    {
+        $headers = @{
+            "X-User-Email" = $Script:Connection.userEmail
+            "X-User-Token" = $Script:Connection.userToken
+        }
+        $params.Add("headers", $headers)
+    }
+
+    try
+    {
+        $reposne = Invoke-WebRequest @params
+    }
+    catch
+    {
+        throw
+    }
+    
     if ($ReturnRaw.IsPresent)
     {
         return $reposne

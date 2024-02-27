@@ -9,7 +9,7 @@
     .PARAMETER Server
         Server to connect to to
     .PARAMETER Credential
-        User email and API token
+        User email and API token - token can be created at https://pwpush.com/en/users/token
     .EXAMPLE
         Connect-KpPwpush
         Connects to https://pwpush.com server

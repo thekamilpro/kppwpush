@@ -1,7 +1,9 @@
 param (
     [string]$Version = "1.0.0",
 
-    [string]$Name = "KpPwpush"
+    [string]$Name = "KpPwpush",
+
+    [switch]$KeepLoaded
 )
 
 #Requires -Module "ModuleBuilder"
@@ -14,12 +16,12 @@ $root = Resolve-Path -Path "$PSScriptRoot/../"
 Write-Host "root: [$($root)]"
 
 $params = @{
-    SourcePath = "$PSScriptRoot/../src/KpPwpush.psd1" 
+    SourcePath                 = "$PSScriptRoot/../src/KpPwpush.psd1" 
     UnversionedOutputDirectory = $true
-    Version = $Version 
-    Passthru = $true
-    Verbose = $true
-    OutputDirectory = "$root/build"
+    Version                    = $Version 
+    Passthru                   = $true
+    Verbose                    = $true
+    OutputDirectory            = "$root/build"
 }
 
 $result = Build-Module @params
@@ -37,4 +39,10 @@ finally
 {
     Write-Host "Unloading module"
     Remove-Module -Name $result.Name -ErrorAction SilentlyContinue
+}
+
+if ($KeepLoaded)
+{
+    Write-Host "Keeping loaded module"
+    Import-Module -Name $result.Path -Verbose:$false -Force
 }

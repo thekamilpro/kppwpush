@@ -16,10 +16,17 @@
     [cmdletbinding()]
     param (
         [Parameter(Mandatory)]
-        [string]$UrlToken
+        [string]$UrlToken,
+
+        [string]$Passphrase
     )
 
     $endpoint = "r/$($UrlToken).json"
+
+    if ($PSBoundParameters.ContainsKey('Passphrase'))
+    {
+        $endpoint += "?passphrase=$Passphrase"
+    }
 
     $params = @{
         Endpoint = $endpoint
